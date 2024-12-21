@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+My Blog
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog_site/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog_site/index.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    
+
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog_site/images/shon.jpg' %}" alt="Shon - The Author of this Blog">
+            <h2>Shon Rice's Blog</h2>
+        </header>
+        <p>Hi I am Shon and I will be a bad ass backend engineer like Jared one day</p>  
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+
+        <ul>
+            {% for post in posts %}
+                {% include "blog_site/includes/posts.html" %}
+            {% endfor %}   
+        </ul>
+
+        <section id="about">
+            <h2>What I Do</h2>
+            <p>Hi I am Shon and I will be a bad ass backend engineer like Jared one day</p>  
+        </section>
+{% endblock %}
