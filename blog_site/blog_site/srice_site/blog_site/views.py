@@ -70,6 +70,7 @@ def get_date(post):
     return post['date']
 
 # Create your views here.
+
 def home_page(request):
     sorted_posts = sorted(all_posts, key=get_date)
     latest_posts = sorted_posts[-3:]
