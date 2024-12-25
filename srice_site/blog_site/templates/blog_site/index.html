@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "../../../templates/base.html" %}
 {% load static %}
 
 {% block title %}
@@ -6,8 +6,8 @@ My Blog
 {% endblock %}
 
 {% block css_files %}
-<link rel="stylesheet" href="{% static 'blog_site/post.css' %}">
-<link rel="stylesheet" href="{% static 'blog_site/index.css' %}">
+<link rel="stylesheet" href="{% static 'blog_site/../../static/blog_site/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog_site/../../static/blog_site/index.css' %}">
 
 {% endblock %}
 
@@ -16,7 +16,7 @@ My Blog
 
     <section id="welcome">
         <header>
-            <img src="{% static 'blog_site/images/shon.jpg' %}" alt="Shon - The Author of this Blog">
+            <img src="{% static 'blog_site/images/../../static/blog_site/images/shon.jpg' %}" alt="Shon - The Author of this Blog">
             <h2>Shon Rice's Blog</h2>
         </header>
         <p>Hi I am Shon and I will be a bad ass backend engineer like Jared one day</p>  
@@ -27,7 +27,7 @@ My Blog
 
         <ul>
             {% for post in posts %}
-                {% include "blog_site/includes/posts.html" %}
+                {% include "blog_site/includes/includes/posts.html" %}
             {% endfor %}   
         </ul>
 

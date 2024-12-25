@@ -1,3 +1,5 @@
+from datetime import timezone
+
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator
 from django.db import models
@@ -6,10 +8,16 @@ from django.db import models
 class Tag(models.Model):
     caption = models.CharField(max_length=40)
 
+    def __str__(self):
+        return self.caption
+
 class Author(models.Model):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
     email = models.EmailField()
+
+    def __str__(self):
+        return self.first_name + " " + self.last_name
 
 
 class Post(models.Model):
@@ -21,3 +29,6 @@ class Post(models.Model):
     content = models.TextField(validators=[MinLengthValidator(10)])
     author = models.ForeignKey(Author, related_name='blog_posts', on_delete=models.SET_NULL, null=True, blank=True)
     tags = models.ManyToManyField(Tag, related_name='posts')
+
+    def __str__(self):
+        return self.title
